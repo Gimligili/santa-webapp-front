@@ -1,0 +1,137 @@
+<script setup>
+   import{ ref, onMounted, computed } from 'vue'
+  import config from '@config/api_config.json';
+  import { useRouter } from 'vue-router'
+
+  const router = useRouter()
+  // Destructure the API IP and port from the configuration object
+  const { ip, port } = config.api;
+  const api_My_Admin_Groups_Url = `http://${ip}:${port}/api/group/admin`;     //GET
+  const api_Delete_Group_Url = `http://${ip}:${port}/api/group/delete`;       //DELETE : request.get_json()['groupID']   
+  
+  const my_admin_groups = ref([])
+  const loaded = ref(false)
+
+  async function RequestMyAdminGroups() {
+    const response = await fetch(api_My_Admin_Groups_Url, {
+      withCredntials: true,
+      credentials: 'include',
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+      },
+    })
+    .then((response) => {
+      response.json().then((data) => {
+        my_admin_groups.value = data;
+        loaded.value = true;
+      });
+    })
+    .catch((error) => {
+      router.push('/login')
+    })
+  }
+
+  onMounted(async () => {
+    await RequestMyAdminGroups()
+  })
+
+async function deleteGroup(groupID) {
+    await fetch(api_Delete_Group_Url, {
+      withCredntials: true,
+      credentials: 'include',
+      method: 'DELETE',
+      headers: {
+      'Content-Type': 'application/json',
+      },
+      dataType: 'json',
+      body: JSON.stringify({
+        groupID: groupID
+      })
+    })
+    await RequestMyAdminGroups()
+}
+
+</script>
+
+<template>
+  <Transition>
+    <form v-if="loaded" @submit.prevent="update_and_back_to_read">
+        <div v-if="my_admin_groups.length > 0">
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Visibility</th>
+                <th>Join Code</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="admin_group in my_admin_groups" :key="admin_group.id">
+                <td>{{admin_group.id}}</td>
+                <td>{{admin_group.name}}</td>
+                <td>{{admin_group.visibility}}</td>
+                <td>{{admin_group.join_code}}</td>
+                <td><button class="delete-group-btn" @click="deleteGroup(admin_group.id)">Delete Group</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div v-else>
+          <p>You didn't create any groups.</p>
+        </div>
+    </form>
+  </Transition>
+</template>
+
+
+<style scoped>
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav > a {
+    padding: 0.1em 0.5em;
+    border-radius: 0.5em;
+  }
+
+  a.forgot-password-link {
+    color: crimson;
+  }
+
+  a.forgot-password-link:hover {
+    background-color: rgba(220, 20, 60, 0.1);
+  }
+
+  .v-enter-active,
+  .v-leave-active {
+    transition: opacity 0.5s ease;
+  }
+
+  .v-enter-from,
+  .v-leave-to {
+    opacity: 0;
+  }
+
+.delete-group-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #dc3545; /* Red color */
+  color: #fff; /* White text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.delete-group-btn:hover {
+  background-color: #c82333; /* Darker red color on hover */
+}
+
+
+</style>
