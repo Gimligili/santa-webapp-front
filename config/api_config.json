@@ -1,6 +1,6 @@
 {
   "api": {
-    "ip": "srv-captain--santa-webapp-back",
+    "ip": "santa-webapp-back.gimligili.fr",
     "port": "5000",
     "protocol": "https"
   }

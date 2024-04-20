@@ -4,7 +4,7 @@
 
   // Destructure the API IP and port from the configuration object
   const { ip, port, protocol } = config.api;
-  const apiJoinGroupUrl = `${protocol}://${ip}:${port}/api/group/join`;
+  const apiJoinGroupUrl = `${protocol}://${ip}/api/group/join`;
 
   const group_id = ref("")
   const input_code = ref("")

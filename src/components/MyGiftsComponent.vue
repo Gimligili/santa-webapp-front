@@ -7,9 +7,9 @@
 
   // Destructure the API IP and port from the configuration object
   const { ip, port, protocol } = config.api;
-  const apiMyGiftsUrl = `${protocol}://${ip}:${port}/api/mygifts`;
-  const apiGiftDeleteUrl = `${protocol}://${ip}:${port}/api/gift/delete`;
-  const apiGiftAddUrl = `${protocol}://${ip}:${port}/api/gift/add`;
+  const apiMyGiftsUrl = `${protocol}://${ip}/api/mygifts`;
+  const apiGiftDeleteUrl = `${protocol}://${ip}/api/gift/delete`;
+  const apiGiftAddUrl = `${protocol}://${ip}/api/gift/add`;
 
   const giftNameInput = ref('')
   const giftDescriptionInput = ref('')

@@ -4,7 +4,7 @@
 
   // Destructure the API IP and port from the configuration object
   const { ip, port, protocol } = config.api;
-  const api_JoinGroup_Url = `${protocol}://${ip}:${port}/api/group/create`;
+  const api_JoinGroup_Url = `${protocol}://${ip}/api/group/create`;
 
   const group_name = ref("")
   const visibility = ref("public") // Set default visibility

@@ -8,10 +8,10 @@
   // Destructure the API IP and port from the configuration object
   // Define api urls
   const { ip, port, protocol } = config.api;
-  const apiGroupGiftsUrl = `${protocol}://${ip}:${port}/api/gift/group/${route.params.id}`;
-  const apiGiftSelectUrl = `${protocol}://${ip}:${port}/api/gift/select`;
-  const apiGiftUnselectUrl = `${protocol}://${ip}:${port}/api/gift/unselect`;
-  const apiGetMyId = `${protocol}://${ip}:${port}/api/myprofile`;
+  const apiGroupGiftsUrl = `${protocol}://${ip}/api/gift/group/${route.params.id}`;
+  const apiGiftSelectUrl = `${protocol}://${ip}/api/gift/select`;
+  const apiGiftUnselectUrl = `${protocol}://${ip}/api/gift/unselect`;
+  const apiGetMyId = `${protocol}://${ip}/api/myprofile`;
   
   const giftNameInput = ref('')
   const giftDescriptionInput = ref('')

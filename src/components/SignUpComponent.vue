@@ -6,8 +6,8 @@
 
   // Destructure the API IP and port from the configuration object
   const { ip, port, protocol } = config.api;
-  const apiSignupUrl = `${protocol}://${ip}:${port}/api/signup`;
-  const apiGetMyId = `${protocol}://${ip}:${port}/api/myprofile`
+  const apiSignupUrl = `${protocol}://${ip}/api/signup`;
+  const apiGetMyId = `${protocol}://${ip}/api/myprofile`
 
   const router = useRouter()
 

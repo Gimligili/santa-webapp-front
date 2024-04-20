@@ -11,8 +11,8 @@ const userId = ref()
 const bannerRoutes = ref([])
 
 const { ip, port, protocol } = config.api
-const apiGetMyId = `${protocol}://${ip}:${port}/api/myprofile`
-const apiLogoutUser = `${protocol}://${ip}:${port}/api/logout`
+const apiGetMyId = `${protocol}://${ip}/api/myprofile`
+const apiLogoutUser = `${protocol}://${ip}/api/logout`
 
 watch(isLoggedIn, (fresh, old) => {
   bannerRoutes.value = router.getRoutes().filter(route =>

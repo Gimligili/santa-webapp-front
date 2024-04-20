@@ -7,9 +7,9 @@
   const router = useRouter()
   // Destructure the API IP and port from the configuration object
   const { ip, port, protocol } = config.api;
-  const apiProfileUrl = `${protocol}://${ip}:${port}/api/profile/${route.params.id}`;
-  const apiUpdateUrl = `${protocol}://${ip}:${port}/api/changeprofile`;
-  const apiGetMyId = `${protocol}://${ip}:${port}/api/myprofile`;
+  const apiProfileUrl = `${protocol}://${ip}/api/profile/${route.params.id}`;
+  const apiUpdateUrl = `${protocol}://${ip}/api/changeprofile`;
+  const apiGetMyId = `${protocol}://${ip}/api/myprofile`;
 
 
   const username = ref("")
