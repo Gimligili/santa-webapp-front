@@ -7,11 +7,11 @@
   const router = useRouter()
   // Destructure the API IP and port from the configuration object
   // Define api urls
-  const { ip, port } = config.api;
-  const apiGroupGiftsUrl = `http://${ip}:${port}/api/gift/group/${route.params.id}`;
-  const apiGiftSelectUrl = `http://${ip}:${port}/api/gift/select`;
-  const apiGiftUnselectUrl = `http://${ip}:${port}/api/gift/unselect`;
-  const apiGetMyId = `http://${ip}:${port}/api/myprofile`;
+  const { ip, port, protocol } = config.api;
+  const apiGroupGiftsUrl = `${protocol}://${ip}:${port}/api/gift/group/${route.params.id}`;
+  const apiGiftSelectUrl = `${protocol}://${ip}:${port}/api/gift/select`;
+  const apiGiftUnselectUrl = `${protocol}://${ip}:${port}/api/gift/unselect`;
+  const apiGetMyId = `${protocol}://${ip}:${port}/api/myprofile`;
   
   const giftNameInput = ref('')
   const giftDescriptionInput = ref('')

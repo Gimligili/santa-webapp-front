@@ -6,9 +6,9 @@
 
   const router = useRouter()
   // Destructure the API IP and port from the configuration object
-  const { ip, port } = config.api;
-  const api_My_Groups_Url = `http://${ip}:${port}/api/mygroups`;            //GET
-  const api_Leave_Group_Url = `http://${ip}:${port}/api/group/leave`;       //POST : request.get_json()['groupID']   
+  const { ip, port, protocol } = config.api;
+  const api_My_Groups_Url = `${protocol}://${ip}:${port}/api/mygroups`;            //GET
+  const api_Leave_Group_Url = `${protocol}://${ip}:${port}/api/group/leave`;       //POST : request.get_json()['groupID']   
 
   
   const my_groups = ref([])

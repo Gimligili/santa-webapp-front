@@ -6,8 +6,8 @@
 
   const router = useRouter()
   // Destructure the API IP and port from the configuration object
-  const { ip, port } = config.api;
-  const apiGetMyId = `http://${ip}:${port}/api/myprofile`;
+  const { ip, port, protocol } = config.api;
+  const apiGetMyId = `${protocol}://${ip}:${port}/api/myprofile`;
 
   onMounted(async () => {
     getMyProfile()

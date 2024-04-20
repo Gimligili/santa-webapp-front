@@ -3,8 +3,8 @@
   import config from '@config/api_config.json';
 
   // Destructure the API IP and port from the configuration object
-  const { ip, port } = config.api;
-  const apiJoinGroupUrl = `http://${ip}:${port}/api/group/join`;
+  const { ip, port, protocol } = config.api;
+  const apiJoinGroupUrl = `${protocol}://${ip}:${port}/api/group/join`;
 
   const group_id = ref("")
   const input_code = ref("")
