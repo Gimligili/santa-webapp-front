@@ -8,7 +8,7 @@
   // Destructure the API IP and port from the configuration object
   const { ip, port } = config.api;
   const apiProfileUrl = `http://${ip}:${port}/api/profile/${route.params.id}`;
-  const apiUpdateUrl = `http://${ip}:${port}/api/changeprofile/${route.params.id}`;
+  const apiUpdateUrl = `http://${ip}:${port}/api/changeprofile`;
   const apiGetMyId = `http://${ip}:${port}/api/myprofile`;
 
 
