@@ -2,6 +2,6 @@
   "api": {
     "ip": "srv-captain--santa-webapp-back",
     "port": "5000",
-    "protocol": "http"
+    "protocol": "https"
   }
 }
