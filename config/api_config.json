@@ -1,6 +1,6 @@
 {
   "api": {
-    "ip": "localhost",
+    "ip": "santa-webapp-back.gimligili.fr",
     "port": "5000"
   }
 }
