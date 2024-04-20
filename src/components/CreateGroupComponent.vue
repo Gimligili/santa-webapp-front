@@ -3,8 +3,8 @@
   import config from '@config/api_config.json';
 
   // Destructure the API IP and port from the configuration object
-  const { ip, port } = config.api;
-  const api_JoinGroup_Url = `http://${ip}:${port}/api/group/create`;
+  const { ip, port, protocol } = config.api;
+  const api_JoinGroup_Url = `${protocol}://${ip}:${port}/api/group/create`;
 
   const group_name = ref("")
   const visibility = ref("public") // Set default visibility
