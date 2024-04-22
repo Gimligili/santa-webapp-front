@@ -10,7 +10,7 @@ const isLoggedIn = ref(false)
 const userId = ref()
 const bannerRoutes = ref([])
 
-const { ip, port, protocol } = config.api
+const { ip, protocol } = config.api
 const apiGetMyId = `${protocol}://${ip}/api/myprofile`
 const apiLogoutUser = `${protocol}://${ip}/api/logout`
 

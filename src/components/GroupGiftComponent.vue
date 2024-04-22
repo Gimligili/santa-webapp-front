@@ -7,7 +7,7 @@
   const router = useRouter()
   // Destructure the API IP and port from the configuration object
   // Define api urls
-  const { ip, port, protocol } = config.api;
+  const { ip, protocol } = config.api;
   const apiGroupGiftsUrl = `${protocol}://${ip}/api/gift/group/${route.params.id}`;
   const apiGiftSelectUrl = `${protocol}://${ip}/api/gift/select`;
   const apiGiftUnselectUrl = `${protocol}://${ip}/api/gift/unselect`;

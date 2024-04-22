@@ -8,7 +8,7 @@
   const router = useRouter()
 
   // Destructure the API IP and port from the configuration object
-  const { ip, port, protocol } = config.api;
+  const { ip, protocol } = config.api;
   const apiLoginUrl  = `${protocol}://${ip}/api/login`;
   const apiGetMyId   = `${protocol}://${ip}/api/myprofile`
 

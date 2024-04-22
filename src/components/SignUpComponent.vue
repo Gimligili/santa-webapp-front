@@ -5,7 +5,7 @@
   import zxcvbn from 'zxcvbn';
 
   // Destructure the API IP and port from the configuration object
-  const { ip, port, protocol } = config.api;
+  const { ip, protocol } = config.api;
   const apiSignupUrl = `${protocol}://${ip}/api/signup`;
   const apiGetMyId = `${protocol}://${ip}/api/myprofile`
 
