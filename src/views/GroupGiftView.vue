@@ -10,7 +10,7 @@ const route = useRoute();
 const router = useRouter();
 
 const { ip, protocol } = config.api;
-const apiSecretSatusUrl = `${protocol}://${ip}/api/secret/active/group/${route.params.id}`;
+const apiSecretSatusUrl = `${protocol}://${ip}/api/secret/info/group/${route.params.id}`;
 
 const secret_santa = ref(false);
 
@@ -25,7 +25,7 @@ async function RequestSecretSatus() {
     })
     .then((response) => {
       response.json().then((data) => {
-        if (data.status === 'active') {
+        if (data.secret_santa === 'true') {
           secret_santa.value = true
         }
       });

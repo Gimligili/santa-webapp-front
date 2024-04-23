@@ -93,6 +93,10 @@ input[type=number].birthdate-input {
   width: calc(var(--input-width)/3 - 0.39em);
 }
 
+input[type=number].sdate-input {
+  width: calc(var(--input-width)/3 - 0.39em);
+}
+
 input:focus {
   outline: none;
   border: solid dodgerblue var(--input-border-outline);

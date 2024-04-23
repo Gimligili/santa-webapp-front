@@ -7,6 +7,7 @@ import MyProfileView from '@/views/MyProfileView.vue'
 import GroupView from '@/views/GroupView.vue'
 import MyGiftsView from '@/views/MyGiftsView.vue'
 import GroupGiftView from '@/views/GroupGiftView.vue'
+import GroupAdminView from '@/views/GroupAdminView.vue'
 
 
 const router = createRouter({
@@ -93,6 +94,16 @@ const router = createRouter({
         displayOnBanner: false
       },
       component: GroupGiftView
+    },
+    {
+      path: '/group/admin/:id',
+      name: 'Group Admin',
+      meta: {
+        requiresAuth: true,
+        displayOnUserBanner: false,
+        displayOnBanner: false
+      },
+      component: GroupAdminView
     },
     {
       path: '/myprofile',
