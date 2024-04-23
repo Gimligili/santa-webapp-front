@@ -67,6 +67,7 @@ function redirect_to_admin_group(groupID) {
               <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Secret Santa</th>
                 <th>Visibility</th>
                 <th>Join Code</th>
                 <th>Delete</th>
@@ -76,6 +77,7 @@ function redirect_to_admin_group(groupID) {
               <tr id="group_button" v-for="admin_group in my_admin_groups" :key="admin_group.id">
                 <td @click="redirect_to_admin_group(admin_group.id)">{{admin_group.id}}</td>
                 <td @click="redirect_to_admin_group(admin_group.id)">{{admin_group.name}}</td>
+                <td @click="redirect_to_admin_group(admin_group.id)">{{admin_group.secret_santa}}</td>
                 <td @click="redirect_to_admin_group(admin_group.id)">{{admin_group.visibility}}</td>
                 <td @click="redirect_to_admin_group(admin_group.id)">{{admin_group.join_code}}</td>
                 <td><button class="delete-group-btn" @click="deleteGroup(admin_group.id)">Delete Group</button></td>
