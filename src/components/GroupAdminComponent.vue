@@ -52,6 +52,10 @@ async function deleteGroup(groupID) {
     await RequestMyAdminGroups()
 }
 
+function redirect_to_admin_group(groupID) {
+  router.push((`/group/admin/${groupID}`))
+}
+
 </script>
 
 <template>
@@ -63,17 +67,19 @@ async function deleteGroup(groupID) {
               <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Secret Santa</th>
                 <th>Visibility</th>
                 <th>Join Code</th>
                 <th>Delete</th>
               </tr>
             </thead>
             <tbody>
-              <tr v-for="admin_group in my_admin_groups" :key="admin_group.id">
-                <td>{{admin_group.id}}</td>
-                <td>{{admin_group.name}}</td>
-                <td>{{admin_group.visibility}}</td>
-                <td>{{admin_group.join_code}}</td>
+              <tr id="group_button" v-for="admin_group in my_admin_groups" :key="admin_group.id">
+                <td @click="redirect_to_admin_group(admin_group.id)">{{admin_group.id}}</td>
+                <td @click="redirect_to_admin_group(admin_group.id)">{{admin_group.name}}</td>
+                <td @click="redirect_to_admin_group(admin_group.id)">{{admin_group.secret_santa}}</td>
+                <td @click="redirect_to_admin_group(admin_group.id)">{{admin_group.visibility}}</td>
+                <td @click="redirect_to_admin_group(admin_group.id)">{{admin_group.join_code}}</td>
                 <td><button class="delete-group-btn" @click="deleteGroup(admin_group.id)">Delete Group</button></td>
               </tr>
             </tbody>
@@ -131,6 +137,23 @@ async function deleteGroup(groupID) {
 
 .delete-group-btn:hover {
   background-color: #c82333; /* Darker red color on hover */
+}
+#group_button {
+  cursor: pointer;
+  text-decoration: underline;
+  color: var(--color-text);
+  transition: all 0.3s ease;
+  padding: 8px;
+  border-radius: 0; 
+}
+
+#group_button:hover {
+  background-color: rgb(21, 92, 0);
+  border-radius: 15px;
+  color: white;
+  transform: scale(0.98);
+  font-size: 1.0em;
+  transition: all 0.3s ease;
 }
 
 

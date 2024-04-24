@@ -69,13 +69,15 @@ function redirect_to_group(groupID) {
               <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Secret Santa</th>
                 <th>Leave</th>
               </tr>
             </thead>
             <tbody>
               <tr id="group_button" v-for="group in my_groups" :key="group.id">
-                <td>{{group.id}}</td>
+                <td @click="redirect_to_group(group.id)">{{group.id}}</td>
                 <td @click="redirect_to_group(group.id)">{{group.name}}</td>
+                <td @click="redirect_to_group(group.id)">{{group.secret_santa}}</td>
                 <td><button class="leave-group-btn" @click="quitGroup(group.id)">Leave Group</button></td>
               </tr>
             </tbody>
