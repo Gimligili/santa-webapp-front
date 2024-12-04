@@ -40,7 +40,7 @@
   redirectIfLoggedIn()
 
 
-  const minLengthPassword = 12 // fetch from back eventually
+  const minLengthPassword = 10 // fetch from back eventually
 
   const resultMessage = ref("");
   const resultColor = ref("");
@@ -168,7 +168,7 @@
         <input required :class="{ wrong: !emailInput }" autocomplete="off" placeholder="Enter your email" type="email" name="email" id="emailInput" v-model="emailInput">
         
         <label for="passwordInput">Password*</label>
-        <input required :class="{ wrong: passwordInput.length < (minLengthPassword-1) }" :minlength="minLengthPassword" autocomplete="new-password" placeholder="Enter your password" type="password" name="password" id="passwordInput" v-model="passwordInput" @input="evaluatePasswordStrength">
+        <input required :class="{ wrong: passwordInput.length <= (minLengthPassword-1) }" :minlength="minLengthPassword" autocomplete="new-password" placeholder="Enter your password" type="password" name="password" id="passwordInput" v-model="passwordInput" @input="evaluatePasswordStrength">
         <div></div>
         <div class="password-strength-bar" 
              :class="{'very-weak': evaluatePasswordStrength === 0, 
